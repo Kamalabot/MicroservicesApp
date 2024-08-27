@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>MicroservicesApp</artifactId>
+  <packaging>pom</packaging>
+  <!-- aggregator requires pom as packaging -->
+  <version>1.0-SNAPSHOT</version>
+  <name>MicroservicesApp</name>
+  <url>http://maven.apache.org</url>
+  <modules>
+    <module>order-service</module>
+    <module>product-service</module>
+    <module>file-service</module>
+    <module>gateway-service</module>
+  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+       <scope>test</scope>
+    </dependency>
+  </dependencies> 
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+        <!-- Use the latest stable version -->
+        <configuration>
+          <includes>
+            <include>**/MicroservicesAPITests.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
